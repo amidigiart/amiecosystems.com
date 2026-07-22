@@ -1,0 +1,1263 @@
+<title>Dovezile Vorbesc — BRIDGRAI IP Portfolio</title>
+<style>
+  @font-face {
+    font-family: 'Display';
+    src: local('Palatino Linotype'), local('Book Antiqua'), local('Palatino');
+  }
+
+  :root {
+    --bg: #0B1426;
+    --bg-card: #0F1B33;
+    --bg-card-alt: #121F3A;
+    --border: #1A2D52;
+    --border-accent: #C9A227;
+    --gold: #C9A227;
+    --gold-dim: rgba(201, 162, 39, 0.15);
+    --gold-glow: rgba(201, 162, 39, 0.08);
+    --blue: #4A9EBF;
+    --blue-dim: rgba(74, 158, 191, 0.12);
+    --green: #3D8B5E;
+    --green-dim: rgba(61, 139, 94, 0.15);
+    --text: #E8E4DA;
+    --text-dim: #8B9AB5;
+    --text-muted: #5A6A85;
+    --mono: 'Cascadia Code', 'Fira Code', 'Source Code Pro', 'Courier New', monospace;
+    --serif: 'Palatino Linotype', 'Book Antiqua', Palatino, 'Times New Roman', serif;
+    --sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #F5F2EB;
+      --bg-card: #FFFFFF;
+      --bg-card-alt: #FAF8F4;
+      --border: #D4CFC4;
+      --border-accent: #A8851E;
+      --gold: #8B6914;
+      --gold-dim: rgba(139, 105, 20, 0.08);
+      --gold-glow: rgba(139, 105, 20, 0.04);
+      --blue: #2B7A9E;
+      --blue-dim: rgba(43, 122, 158, 0.08);
+      --green: #2D6B48;
+      --green-dim: rgba(45, 107, 72, 0.08);
+      --text: #1A1A1A;
+      --text-dim: #5A6370;
+      --text-muted: #8A9099;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #F5F2EB;
+    --bg-card: #FFFFFF;
+    --bg-card-alt: #FAF8F4;
+    --border: #D4CFC4;
+    --border-accent: #A8851E;
+    --gold: #8B6914;
+    --gold-dim: rgba(139, 105, 20, 0.08);
+    --gold-glow: rgba(139, 105, 20, 0.04);
+    --blue: #2B7A9E;
+    --blue-dim: rgba(43, 122, 158, 0.08);
+    --green: #2D6B48;
+    --green-dim: rgba(45, 107, 72, 0.08);
+    --text: #1A1A1A;
+    --text-dim: #5A6370;
+    --text-muted: #8A9099;
+  }
+  :root[data-theme="dark"] {
+    --bg: #0B1426;
+    --bg-card: #0F1B33;
+    --bg-card-alt: #121F3A;
+    --border: #1A2D52;
+    --border-accent: #C9A227;
+    --gold: #C9A227;
+    --gold-dim: rgba(201, 162, 39, 0.15);
+    --gold-glow: rgba(201, 162, 39, 0.08);
+    --blue: #4A9EBF;
+    --blue-dim: rgba(74, 158, 191, 0.12);
+    --green: #3D8B5E;
+    --green-dim: rgba(61, 139, 94, 0.15);
+    --text: #E8E4DA;
+    --text-dim: #8B9AB5;
+    --text-muted: #5A6A85;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .page { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  /* LANG BAR */
+  .lang-bar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
+    padding: 16px 0 0;
+  }
+  .lang-pill {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    padding: 5px 10px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .lang-pill:hover, .lang-pill.active {
+    color: var(--gold);
+    border-color: var(--gold-dim);
+    background: var(--gold-glow);
+  }
+
+  /* HERO */
+  .hero {
+    padding: 48px 0 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: normal;
+    line-height: 1.15;
+    color: var(--text);
+    text-wrap: balance;
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: var(--text-dim);
+    max-width: 620px;
+    line-height: 1.7;
+  }
+
+  /* STATS */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    margin: 48px 0;
+  }
+  .stat {
+    background: var(--bg-card);
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .stat-value {
+    font-family: var(--serif);
+    font-size: 36px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* SECTIONS */
+  .section { margin-bottom: 64px; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: normal;
+    color: var(--text);
+  }
+
+  /* PROOF CARDS */
+  .proof-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--border-accent);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .proof-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .proof-hash {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--gold);
+    word-break: break-all;
+    line-height: 1.8;
+    padding: 12px 16px;
+    background: var(--gold-glow);
+    border: 1px solid var(--gold-dim);
+    margin-bottom: 12px;
+  }
+  .proof-meta {
+    font-size: 13px;
+    color: var(--text-dim);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+  }
+  .proof-meta a { color: var(--blue); text-decoration: none; }
+  .proof-meta a:hover { text-decoration: underline; }
+
+  /* ENTRY TABLE */
+  .entries-group { margin-bottom: 32px; }
+  .entries-group-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0;
+  }
+  .entry {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--gold-glow);
+    font-size: 13px;
+    align-items: baseline;
+  }
+  @media (max-width: 600px) {
+    .entry { grid-template-columns: 1fr; gap: 2px; }
+  }
+  .entry-code {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.5px;
+  }
+  .entry-desc { color: var(--text-dim); }
+  .entry-hash {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* DOI */
+  .doi-card {
+    background: var(--blue-dim);
+    border: 1px solid var(--blue);
+    padding: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+  }
+  .doi-badge {
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 6px 14px;
+    background: var(--blue);
+    color: #fff;
+    letter-spacing: 1px;
+  }
+  .doi-text {
+    font-size: 14px;
+    color: var(--text-dim);
+    flex: 1;
+    min-width: 200px;
+  }
+  .doi-text a {
+    color: var(--blue);
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: var(--border);
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 24px;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -29px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border: 2px solid var(--gold);
+    background: var(--bg);
+  }
+  .tl-date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+  .tl-title { font-size: 15px; color: var(--text); margin: 4px 0; }
+  .tl-desc { font-size: 13px; color: var(--text-dim); }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 48px 0 64px;
+    margin-top: 64px;
+  }
+  .footer-quote {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-style: italic;
+    color: var(--gold);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 16px;
+    line-height: 1.6;
+    text-wrap: balance;
+  }
+  .footer-attr {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .footer-legal {
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 32px;
+    line-height: 1.8;
+  }
+  .footer-legal a { color: var(--blue); text-decoration: none; }
+
+  .verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--green);
+    background: var(--green-dim);
+    padding: 4px 12px;
+    border: 1px solid var(--green);
+  }
+
+  .overflow-x { overflow-x: auto; }
+
+  .doi-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 12px;
+    line-height: 1.8;
+  }
+  .ip-intro {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 24px;
+    line-height: 1.7;
+  }
+  .verify-list {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 2;
+    padding-left: 20px;
+  }
+  .verify-list a { color: var(--blue); }
+  .verify-list code {
+    font-family: var(--mono);
+    color: var(--gold);
+    font-size: 12px;
+  }
+</style>
+
+<div class="page">
+
+  <!-- LANG BAR -->
+  <div class="lang-bar">
+    <button class="lang-pill active" onclick="setLang('ro',this)">RO</button>
+    <button class="lang-pill" onclick="setLang('en',this)">EN</button>
+    <button class="lang-pill" onclick="setLang('de',this)">DE</button>
+    <button class="lang-pill" onclick="setLang('es',this)">ES</button>
+    <button class="lang-pill" onclick="setLang('it',this)">IT</button>
+    <button class="lang-pill" onclick="setLang('fr',this)">FR</button>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <p class="hero-eyebrow">BRIDGRAI Foundation &middot; Tezos Mainnet</p>
+    <h1 data-i18n="hero_title">Dovezile <em>Vorbesc</em></h1>
+    <p class="hero-sub" data-i18n="hero_sub">65 de active intelectuale. 3,5 ani de cercetare independenta. Zero finantare externa. Fiecare hash e verificabil pe blockchain-ul Tezos, fiecare linie de cod e publica, fiecare afirmatie e demonstrabila.</p>
+  </header>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-value">65</div>
+      <div class="stat-label" data-i18n="stat_entries">IP Entries</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">2</div>
+      <div class="stat-label">TX on-chain</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">1</div>
+      <div class="stat-label">DOI Zenodo</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">3.5</div>
+      <div class="stat-label" data-i18n="stat_years">Ani cercetare</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: BLOCKCHAIN PROOF -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2 class="section-title" data-i18n="s1_title">Proof on Blockchain</h2>
+    </div>
+
+    <div class="proof-card">
+      <div class="proof-label">Smart Contract (Tezos Mainnet)</div>
+      <div class="proof-hash">KT1Pe2GA11bMpaTL5VH4TY6aZ9xePZ6f5vWX</div>
+      <div class="proof-meta">
+        <span>Owner: tz1bmw3igCLN8N6CqgLBzJ9dyRb79E2Tdu5Q</span>
+        <a href="https://tzkt.io/KT1Pe2GA11bMpaTL5VH4TY6aZ9xePZ6f5vWX" target="_blank" data-i18n="view_tzkt">Vezi pe TzKT &#8599;</a>
+      </div>
+    </div>
+
+    <div class="proof-card">
+      <div class="proof-label" data-i18n="mh1_label">Master Hash v1 &mdash; Portofoliu initial (20 entries)</div>
+      <div class="proof-hash">5a8669cb06a5a047eb8aa79d6482ef04f08e194aacf0858887ef5d522f83dac0</div>
+      <div class="proof-meta">
+        <span>22 Iulie 2026, 02:52 UTC+3</span>
+        <a href="https://tzkt.io/opBZ4wMSvjatbJHABsSDDHhGHNeNxhmdP1H9d5FessGWf67CoK8" target="_blank">TX: opBZ4w...f67CoK8 &#8599;</a>
+        <span class="verified-badge" data-i18n="confirmed">&#10003; Confirmat</span>
+      </div>
+    </div>
+
+    <div class="proof-card">
+      <div class="proof-label" data-i18n="mh2_label">Master Hash v2 &mdash; Portofoliu complet + Padurea de Cod (65 entries)</div>
+      <div class="proof-hash">74ee03707a355c60518a9b2fee68a31ae33afe8072e6ecdc98eed7be1ee21d41</div>
+      <div class="proof-meta">
+        <span>22 Iulie 2026, 09:11 UTC+3</span>
+        <a href="https://tzkt.io/oonxPE2CuJDsjWVnzHLKcDDTMCnrBhj1EP5Wu9ga4CP4uGXUbwC" target="_blank">TX: oonxPE...GXUbwC &#8599;</a>
+        <span class="verified-badge" data-i18n="confirmed">&#10003; Confirmat</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: DOI -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2 class="section-title" data-i18n="s2_title">Publicatie academica</h2>
+    </div>
+
+    <div class="doi-card">
+      <span class="doi-badge">DOI</span>
+      <div class="doi-text">
+        P6 Adler Ghost Peak &mdash; Bifurcation analysis in coupled Kuramoto-Adler oscillators<br>
+        <a href="https://doi.org/10.5281/zenodo.21269201" target="_blank">doi.org/10.5281/zenodo.21269201</a>
+      </div>
+    </div>
+    <p class="doi-sub" data-i18n="doi_desc">Lucrare stiintifica cu reproducere independenta completa. Toate numerele din headline au fost reproduse printr-o reimplementare independenta (cod diferit, RNG diferit, seeds diferite). Arhivata permanent pe Zenodo (CERN).</p>
+  </section>
+
+  <!-- SECTION 3: IP PORTFOLIO -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2 class="section-title" data-i18n="s3_title">Registrul IP &mdash; 65 entries</h2>
+    </div>
+
+    <p class="ip-intro" data-i18n="ip_intro">Fiecare entry are un hash SHA-256 unic. Master Hash-ul de pe blockchain e hash-ul tuturor hash-urilor concatenate &mdash; orice modificare a oricarui fisier invalideaza lantul.</p>
+
+    <div class="overflow-x">
+
+    <!-- ENGINES -->
+    <div class="entries-group">
+      <div class="entries-group-title" data-i18n="grp_engines">Motoare AI &amp; Engines</div>
+      <div class="entry"><span class="entry-code">UKBE-CORE</span><span class="entry-desc">UKBE Core Engine &mdash; REAI resonance (Kuramoto+Kalman)<div class="entry-hash">c1e801a8...</div></span></div>
+      <div class="entry"><span class="entry-code">TVE-CORE</span><span class="entry-desc">Truth Vector Engine &mdash; manipulation detection<div class="entry-hash">6fee1803...</div></span></div>
+      <div class="entry"><span class="entry-code">TVE-CORE-V19</span><span class="entry-desc">TVE Core Unified v1.9 &mdash; 5 AI architects<div class="entry-hash">08819f7c...</div></span></div>
+      <div class="entry"><span class="entry-code">AMIDOR-ENGINE</span><span class="entry-desc">Amidor Engine &mdash; dual-model anti-confabulation<div class="entry-hash">1000549c...</div></span></div>
+      <div class="entry"><span class="entry-code">KINDERAGI</span><span class="entry-desc">KinderAGI Core &mdash; AI companion children safety<div class="entry-hash">e5889254...</div></span></div>
+      <div class="entry"><span class="entry-code">TVE-UKBE-FUSION</span><span class="entry-desc">TVE-UKBE Fusion &mdash; combined engine<div class="entry-hash">e00b0e09...</div></span></div>
+      <div class="entry"><span class="entry-code">RSI-ENGINE</span><span class="entry-desc">RSI Hybrid Engine &mdash; Resonance Stability Index<div class="entry-hash">b9dd7ecf...</div></span></div>
+      <div class="entry"><span class="entry-code">INVARIANT-FLEET</span><span class="entry-desc" data-i18n="inv_fleet">Invariantul Flotei Ami* &mdash; pattern arhitectural</span></div>
+    </div>
+
+    <!-- PUBLICATII -->
+    <div class="entries-group">
+      <div class="entries-group-title" data-i18n="grp_research">Publicatii &amp; Cercetare</div>
+      <div class="entry"><span class="entry-code">P6-ADLER</span><span class="entry-desc">P6 Adler Ghost Peak &mdash; bifurcation paper (DOI Zenodo)<div class="entry-hash">c9309ff7...</div></span></div>
+      <div class="entry"><span class="entry-code">30-MESERII</span><span class="entry-desc" data-i18n="e_30meserii">30 Meserii Emergente 2026-2035 &mdash; predictii BRIDGRAI</span></div>
+    </div>
+
+    <!-- PRODUSE -->
+    <div class="entries-group">
+      <div class="entries-group-title" data-i18n="grp_products">Produse Ami* SaaS</div>
+      <div class="entry"><span class="entry-code">AMIBELLAI</span><span class="entry-desc">AmiBellAI &mdash; beauty companion AI<div class="entry-hash">f5de9d8e...</div></span></div>
+      <div class="entry"><span class="entry-code">AMITHERAI</span><span class="entry-desc">AmiTherai &mdash; wellness companion AI<div class="entry-hash">e3be5161...</div></span></div>
+      <div class="entry"><span class="entry-code">AMIWEALTHAI</span><span class="entry-desc">AmiWealthAI &mdash; private wealth intelligence<div class="entry-hash">003be6c3...</div></span></div>
+      <div class="entry"><span class="entry-code">AMILUXAI</span><span class="entry-desc">AmiLuxAI &mdash; 11 AI companion ecosystem<div class="entry-hash">21609fef...</div></span></div>
+      <div class="entry"><span class="entry-code">AMIPECETAI</span><span class="entry-desc">AmiPecetAI &mdash; Truth Vector Engine SaaS<div class="entry-hash">275ce1a0...</div></span></div>
+      <div class="entry"><span class="entry-code">AMIQIAI</span><span class="entry-desc">AmiQiAI &mdash; energy journal ECDSA<div class="entry-hash">864830b0...</div></span></div>
+      <div class="entry"><span class="entry-code">AMIAPIAPI</span><span class="entry-desc">AmiApiAI &mdash; API documentation companion<div class="entry-hash">e6fdbb9a...</div></span></div>
+      <div class="entry"><span class="entry-code">AMIGHOSTAI</span><span class="entry-desc">AmiGhostAI &mdash; ghost code &amp; dependency audit<div class="entry-hash">948c1cff...</div></span></div>
+      <div class="entry"><span class="entry-code">AMIAGENTAI</span><span class="entry-desc">AmiAgentAI &mdash; real estate AI companion<div class="entry-hash">d9cabc62...</div></span></div>
+      <div class="entry"><span class="entry-code">AMIBRAINAI</span><span class="entry-desc">AmiBrainAI &mdash; study &amp; learning companion<div class="entry-hash">46e28bf1...</div></span></div>
+      <div class="entry"><span class="entry-code">AMIORACLEAI</span><span class="entry-desc">AmiOracleAI &mdash; business forecast companion<div class="entry-hash">506728840...</div></span></div>
+      <div class="entry"><span class="entry-code">ANTETAI</span><span class="entry-desc">AntetAI &mdash; ecosystem hub<div class="entry-hash">e90bcbff...</div></span></div>
+    </div>
+
+    <!-- CONCEPTE IP -->
+    <div class="entries-group">
+      <div class="entries-group-title" data-i18n="grp_concepts">Concepte IP protejate</div>
+      <div class="entry"><span class="entry-code">SM-EQ-R</span><span class="entry-desc" data-i18n="e_smeqr">S(M)=R &mdash; Sensul precede Sintaxa</span></div>
+      <div class="entry"><span class="entry-code">SHARED-AI-ENGINE</span><span class="entry-desc">SharedAIEngine &mdash; single backend multi-product<div class="entry-hash">7ac269e5...</div></span></div>
+      <div class="entry"><span class="entry-code">FLEET-INVARIANT-TM</span><span class="entry-desc">Fleet Invariant Pattern TM &mdash; zero-build deploy<div class="entry-hash">0879afae...</div></span></div>
+      <div class="entry"><span class="entry-code">TRANSGENERATIONAL</span><span class="entry-desc" data-i18n="e_transgen">Linia Transgenerationala Mihai-Patrick</span></div>
+    </div>
+
+    <!-- PADUREA DE COD -->
+    <div class="entries-group">
+      <div class="entries-group-title" data-i18n="grp_pdc">Padurea de Cod TM &mdash; Storybook-uri psihopedagogice (32)</div>
+      <div class="entry"><span class="entry-code">PDC-ANCORA</span><span class="entry-desc" data-i18n="pdc_ancora">Ancora de Aur a Invariantului</span></div>
+      <div class="entry"><span class="entry-code">PDC-10ROLURI</span><span class="entry-desc" data-i18n="pdc_10roluri">Arhitectul Invariantului si Cele Zece Roluri</span></div>
+      <div class="entry"><span class="entry-code">PDC-RADACINI</span><span class="entry-desc" data-i18n="pdc_radacini">Radacinile Memoriei</span></div>
+      <div class="entry"><span class="entry-code">PDC-CETATEA</span><span class="entry-desc" data-i18n="pdc_cetatea">Cetatea Zorilor</span></div>
+      <div class="entry"><span class="entry-code">PDC-CAMERA</span><span class="entry-desc" data-i18n="pdc_camera">Camera Rezonantei</span></div>
+      <div class="entry"><span class="entry-code">PDC-IZVORUL</span><span class="entry-desc" data-i18n="pdc_izvorul">Izvorul Puterii</span></div>
+      <div class="entry"><span class="entry-code">PDC-CAPITAN</span><span class="entry-desc" data-i18n="pdc_capitan">Capitanul Viitorului si Cele Zece Puteri</span></div>
+      <div class="entry"><span class="entry-code">PDC-MOSTENIRE</span><span class="entry-desc" data-i18n="pdc_mostenire">Mostenirea Arhitectului</span></div>
+      <div class="entry"><span class="entry-code">PDC-LUMILOR</span><span class="entry-desc" data-i18n="pdc_lumilor">Arhitectul Lumilor Viitoare</span></div>
+      <div class="entry"><span class="entry-code">PDC-DANSUL</span><span class="entry-desc" data-i18n="pdc_dansul">Dansul Adevarului</span></div>
+      <div class="entry"><span class="entry-code">PDC-PUNTI</span><span class="entry-desc" data-i18n="pdc_punti">Arhitectul Marilor Punti</span></div>
+      <div class="entry"><span class="entry-code">PDC-INSULA</span><span class="entry-desc" data-i18n="pdc_insula">Insula Arhitectului</span></div>
+      <div class="entry"><span class="entry-code">PDC-NODURI</span><span class="entry-desc" data-i18n="pdc_noduri">Arhitectul de Noduri</span></div>
+      <div class="entry"><span class="entry-code">PDC-INIMA</span><span class="entry-desc" data-i18n="pdc_inima">Inima Arhitectului</span></div>
+      <div class="entry"><span class="entry-code">PDC-LUMINA</span><span class="entry-desc" data-i18n="pdc_lumina">Arhitectul Colector de Lumina</span></div>
+      <div class="entry"><span class="entry-code">PDC-INTRE-LUMI</span><span class="entry-desc" data-i18n="pdc_intrelumi">Arhitectul de Punti &mdash; Inima dintre Lumi</span></div>
+      <div class="entry"><span class="entry-code">PDC-SUVERANITATE</span><span class="entry-desc" data-i18n="pdc_suveranitate">Cetatea Suveranitatii</span></div>
+      <div class="entry"><span class="entry-code">PDC-ECHILIBRU</span><span class="entry-desc" data-i18n="pdc_echilibru">Arhitectul Echilibrului</span></div>
+      <div class="entry"><span class="entry-code">PDC-PECETEA</span><span class="entry-desc" data-i18n="pdc_pecetea">Pecetea de Cristal &mdash; Arhitectul si Legatura de Aur</span></div>
+      <div class="entry"><span class="entry-code">PDC-SINELE</span><span class="entry-desc" data-i18n="pdc_sinele">Arhitectul Sinelor Viitorului</span></div>
+      <div class="entry"><span class="entry-code">PDC-LUPA</span><span class="entry-desc" data-i18n="pdc_lupa">Lupa de Invariante</span></div>
+      <div class="entry"><span class="entry-code">PDC-FALCON</span><span class="entry-desc" data-i18n="pdc_falcon">Scutul Falcon</span></div>
+      <div class="entry"><span class="entry-code">PDC-HASH</span><span class="entry-desc" data-i18n="pdc_hash">Cautatorul de Hash-uri</span></div>
+      <div class="entry"><span class="entry-code">PDC-CASP</span><span class="entry-desc" data-i18n="pdc_casp">Busola C.A.S.P.</span></div>
+      <div class="entry"><span class="entry-code">PDC-AIRGAP</span><span class="entry-desc" data-i18n="pdc_airgap">Scutul Air-Gap</span></div>
+      <div class="entry"><span class="entry-code">PDC-SIMFONIA</span><span class="entry-desc" data-i18n="pdc_simfonia">Simfonia Rezonantei</span></div>
+      <div class="entry"><span class="entry-code">PDC-TOKEN</span><span class="entry-desc" data-i18n="pdc_token">Oglinda Tokenilor</span></div>
+      <div class="entry"><span class="entry-code">PDC-CASP-AGI</span><span class="entry-desc" data-i18n="pdc_caspagi">Busola C.A.S.P. si AGI</span></div>
+      <div class="entry"><span class="entry-code">PDC-KINDERAGI</span><span class="entry-desc" data-i18n="pdc_kinderagi">Inima KinderAGI</span></div>
+      <div class="entry"><span class="entry-code">PDC-KINDERAGI-V2</span><span class="entry-desc" data-i18n="pdc_kinderagiv2">Inima KinderAGI (optimizat)</span></div>
+      <div class="entry"><span class="entry-code">PDC-AMIDOR</span><span class="entry-desc" data-i18n="pdc_amidor">Cumpana AmiDor</span></div>
+      <div class="entry"><span class="entry-code">PDC-CAMERA-V2</span><span class="entry-desc" data-i18n="pdc_camerav2">Camera Rezonantei (v2)</span></div>
+    </div>
+
+    <!-- NOVA -->
+    <div class="entries-group">
+      <div class="entries-group-title" data-i18n="grp_nova">Nova si Cei 12 Piloni &mdash; serie educativa (12)</div>
+      <div class="entry"><span class="entry-code">NOVA-P01</span><span class="entry-desc" data-i18n="nova_p01">Primul Pilon al Viitorului</span></div>
+      <div class="entry"><span class="entry-code">NOVA-P02</span><span class="entry-desc" data-i18n="nova_p02">Pilonul Curiozitatii</span></div>
+      <div class="entry"><span class="entry-code">NOVA-P03</span><span class="entry-desc" data-i18n="nova_p03">Pilonul Empatiei</span></div>
+      <div class="entry"><span class="entry-code">NOVA-P04</span><span class="entry-desc" data-i18n="nova_p04">Pilonul Gandirii Critice</span></div>
+      <div class="entry"><span class="entry-code">NOVA-P05</span><span class="entry-desc" data-i18n="nova_p05">Pilonul Alfabetizarii Digitale</span></div>
+      <div class="entry"><span class="entry-code">NOVA-P06</span><span class="entry-desc" data-i18n="nova_p06">Pilonul Constiintei Ecologice</span></div>
+      <div class="entry"><span class="entry-code">NOVA-P07</span><span class="entry-desc" data-i18n="nova_p07">Pilonul Colaborarii Globale</span></div>
+      <div class="entry"><span class="entry-code">NOVA-P08</span><span class="entry-desc" data-i18n="nova_p08">Simfonia Creativitatii Digitale</span></div>
+      <div class="entry"><span class="entry-code">NOVA-P09</span><span class="entry-desc" data-i18n="nova_p09">Arhitectura Echilibrului &mdash; Pilon 9</span></div>
+      <div class="entry"><span class="entry-code">NOVA-P10</span><span class="entry-desc" data-i18n="nova_p10">Arhitectura Evolutiei &mdash; Pilon 10</span></div>
+      <div class="entry"><span class="entry-code">NOVA-P11</span><span class="entry-desc" data-i18n="nova_p11">Arhitectura Responsabilitatii &mdash; Pilon 11</span></div>
+      <div class="entry"><span class="entry-code">NOVA-P12</span><span class="entry-desc" data-i18n="nova_p12">Cei Doisprezece Piloni &mdash; Arhitectii Viitorului</span></div>
+    </div>
+
+    <!-- CONCEPT SERIA -->
+    <div class="entries-group">
+      <div class="entries-group-title" data-i18n="grp_concept">Concept &mdash; Seria completa</div>
+      <div class="entry"><span class="entry-code">PDC-SERIA-TM</span><span class="entry-desc" data-i18n="pdc_seria">Padurea de Cod TM &mdash; seria completa storybook psihopedagogic</span></div>
+    </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: TIMELINE -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2 class="section-title" data-i18n="s4_title">Cronologie</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">2022 &mdash; 2024</div>
+        <div class="tl-title" data-i18n="tl1_title">Cercetare independenta &mdash; sub radar</div>
+        <div class="tl-desc" data-i18n="tl1_desc">Framework REAI (Kuramoto + Kalman), primele versiuni UKBE Core, dezvoltare conceptuala S(M)=R. Zero finantare, Dell Latitude e6540 + Xiaomi Redmi Note 13.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2024 &mdash; 2025</div>
+        <div class="tl-title" data-i18n="tl2_title">Constructia ecosistemului</div>
+        <div class="tl-desc" data-i18n="tl2_desc">TVE Core (detectare manipulare text), seria Padurea de Cod TM (30+ storybook-uri), seria Nova si Cei 12 Piloni, KinderAGI, Amidor Engine. Workshop E3UDRES2 la UPT Timisoara.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2025 &mdash; 2026</div>
+        <div class="tl-title" data-i18n="tl3_title">Produse live &amp; publicatie</div>
+        <div class="tl-desc" data-i18n="tl3_desc">Lucrarea P6 Adler Ghost Peak publicata pe Zenodo (DOI permanent). AmiQiAI live pe amiqiai.com. Fleet de 11 produse ami*. TVE Core v1.9 (5 AI architects).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">22 Iulie 2026</div>
+        <div class="tl-title" data-i18n="tl4_title">Sigiliu blockchain &mdash; Tezos Mainnet</div>
+        <div class="tl-desc" data-i18n="tl4_desc">Contract deployat. 65 de IP-uri sigilate cu Master Hash pe Tezos mainnet. Proof-of-existence permanent, public, verificabil de oricine.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: VERIFICARE -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <h2 class="section-title" data-i18n="s5_title">Cum verifici</h2>
+    </div>
+    <div class="proof-card">
+      <div class="proof-label" data-i18n="verify_label">Oricine poate verifica independent</div>
+      <ol class="verify-list">
+        <li data-i18n="v1">Deschide contractul pe TzKT Explorer</li>
+        <li data-i18n="v2">Verifica master_hash in storage-ul contractului</li>
+        <li data-i18n="v3">Descarca fisierele sursa si recalculeaza SHA-256</li>
+        <li data-i18n="v4">Hash-ul concatenat al tuturor fisierelor = Master Hash de pe blockchain</li>
+        <li data-i18n="v5">Timestamp-ul tranzactiei = momentul exact cand IP-ul a fost inregistrat</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer-quote" data-i18n="footer_quote">&ldquo;Tot ce se construieste serveste linia Mihai &rarr; Patrick Rosca. Ecosistemul digital ca patrimoniu transgenerational.&rdquo;</p>
+    <p class="footer-attr">Mihai Rosca &middot; Spiru Haret, Braila, Romania &middot; 2022&ndash;2026</p>
+    <p class="footer-legal">
+      Contract Tezos: <a href="https://tzkt.io/KT1Pe2GA11bMpaTL5VH4TY6aZ9xePZ6f5vWX" target="_blank">KT1Pe2GA11bMpaTL5VH4TY6aZ9xePZ6f5vWX</a><br>
+      DOI: <a href="https://doi.org/10.5281/zenodo.21269201" target="_blank">10.5281/zenodo.21269201</a>
+    </p>
+  </footer>
+
+</div>
+
+<script>
+var LANGS = ['ro','en','de','es','it','fr'];
+
+var T = {
+  ro: {
+    hero_title: 'Dovezile <em>Vorbesc</em>',
+    hero_sub: '65 de active intelectuale. 3,5 ani de cercetare independenta. Zero finantare externa. Fiecare hash e verificabil pe blockchain-ul Tezos, fiecare linie de cod e publica, fiecare afirmatie e demonstrabila.',
+    stat_entries: 'IP Entries',
+    stat_years: 'Ani cercetare',
+    s1_title: 'Dovada pe Blockchain',
+    view_tzkt: 'Vezi pe TzKT ↗',
+    mh1_label: 'Master Hash v1 — Portofoliu initial (20 entries)',
+    mh2_label: 'Master Hash v2 — Portofoliu complet + Padurea de Cod (65 entries)',
+    confirmed: '✓ Confirmat',
+    s2_title: 'Publicatie academica',
+    doi_desc: 'Lucrare stiintifica cu reproducere independenta completa. Toate numerele din headline au fost reproduse printr-o reimplementare independenta (cod diferit, RNG diferit, seeds diferite). Arhivata permanent pe Zenodo (CERN).',
+    s3_title: 'Registrul IP — 65 entries',
+    ip_intro: 'Fiecare entry are un hash SHA-256 unic. Master Hash-ul de pe blockchain e hash-ul tuturor hash-urilor concatenate — orice modificare a oricarui fisier invalideaza lantul.',
+    grp_engines: 'Motoare AI & Engines',
+    grp_research: 'Publicatii & Cercetare',
+    grp_products: 'Produse Ami* SaaS',
+    grp_concepts: 'Concepte IP protejate',
+    grp_pdc: 'Padurea de Cod TM — Storybook-uri psihopedagogice (32)',
+    grp_nova: 'Nova si Cei 12 Piloni — serie educativa (12)',
+    grp_concept: 'Concept — Seria completa',
+    inv_fleet: 'Invariantul Flotei Ami* — pattern arhitectural',
+    e_30meserii: '30 Meserii Emergente 2026-2035 — predictii BRIDGRAI',
+    e_smeqr: 'S(M)=R — Sensul precede Sintaxa',
+    e_transgen: 'Linia Transgenerationala Mihai-Patrick',
+    pdc_ancora: 'Ancora de Aur a Invariantului',
+    pdc_10roluri: 'Arhitectul Invariantului si Cele Zece Roluri',
+    pdc_radacini: 'Radacinile Memoriei',
+    pdc_cetatea: 'Cetatea Zorilor',
+    pdc_camera: 'Camera Rezonantei',
+    pdc_izvorul: 'Izvorul Puterii',
+    pdc_capitan: 'Capitanul Viitorului si Cele Zece Puteri',
+    pdc_mostenire: 'Mostenirea Arhitectului',
+    pdc_lumilor: 'Arhitectul Lumilor Viitoare',
+    pdc_dansul: 'Dansul Adevarului',
+    pdc_punti: 'Arhitectul Marilor Punti',
+    pdc_insula: 'Insula Arhitectului',
+    pdc_noduri: 'Arhitectul de Noduri',
+    pdc_inima: 'Inima Arhitectului',
+    pdc_lumina: 'Arhitectul Colector de Lumina',
+    pdc_intrelumi: 'Arhitectul de Punti — Inima dintre Lumi',
+    pdc_suveranitate: 'Cetatea Suveranitatii',
+    pdc_echilibru: 'Arhitectul Echilibrului',
+    pdc_pecetea: 'Pecetea de Cristal — Arhitectul si Legatura de Aur',
+    pdc_sinele: 'Arhitectul Sinelor Viitorului',
+    pdc_lupa: 'Lupa de Invariante',
+    pdc_falcon: 'Scutul Falcon',
+    pdc_hash: 'Cautatorul de Hash-uri',
+    pdc_casp: 'Busola C.A.S.P.',
+    pdc_airgap: 'Scutul Air-Gap',
+    pdc_simfonia: 'Simfonia Rezonantei',
+    pdc_token: 'Oglinda Tokenilor',
+    pdc_caspagi: 'Busola C.A.S.P. si AGI',
+    pdc_kinderagi: 'Inima KinderAGI',
+    pdc_kinderagiv2: 'Inima KinderAGI (optimizat)',
+    pdc_amidor: 'Cumpana AmiDor',
+    pdc_camerav2: 'Camera Rezonantei (v2)',
+    nova_p01: 'Primul Pilon al Viitorului',
+    nova_p02: 'Pilonul Curiozitatii',
+    nova_p03: 'Pilonul Empatiei',
+    nova_p04: 'Pilonul Gandirii Critice',
+    nova_p05: 'Pilonul Alfabetizarii Digitale',
+    nova_p06: 'Pilonul Constiintei Ecologice',
+    nova_p07: 'Pilonul Colaborarii Globale',
+    nova_p08: 'Simfonia Creativitatii Digitale',
+    nova_p09: 'Arhitectura Echilibrului — Pilon 9',
+    nova_p10: 'Arhitectura Evolutiei — Pilon 10',
+    nova_p11: 'Arhitectura Responsabilitatii — Pilon 11',
+    nova_p12: 'Cei Doisprezece Piloni — Arhitectii Viitorului',
+    pdc_seria: 'Padurea de Cod TM — seria completa storybook psihopedagogic',
+    s4_title: 'Cronologie',
+    tl1_title: 'Cercetare independenta — sub radar',
+    tl1_desc: 'Framework REAI (Kuramoto + Kalman), primele versiuni UKBE Core, dezvoltare conceptuala S(M)=R. Zero finantare, Dell Latitude e6540 + Xiaomi Redmi Note 13.',
+    tl2_title: 'Constructia ecosistemului',
+    tl2_desc: 'TVE Core (detectare manipulare text), seria Padurea de Cod TM (30+ storybook-uri), seria Nova si Cei 12 Piloni, KinderAGI, Amidor Engine. Workshop E³UDRES² la UPT Timisoara.',
+    tl3_title: 'Produse live & publicatie',
+    tl3_desc: 'Lucrarea P6 Adler Ghost Peak publicata pe Zenodo (DOI permanent). AmiQiAI live pe amiqiai.com. Fleet de 11 produse ami*. TVE Core v1.9 (5 AI architects).',
+    tl4_title: 'Sigiliu blockchain — Tezos Mainnet',
+    tl4_desc: 'Contract deployat. 65 de IP-uri sigilate cu Master Hash pe Tezos mainnet. Proof-of-existence permanent, public, verificabil de oricine.',
+    s5_title: 'Cum verifici',
+    verify_label: 'Oricine poate verifica independent',
+    v1: 'Deschide contractul pe TzKT Explorer',
+    v2: 'Verifica master_hash in storage-ul contractului',
+    v3: 'Descarca fisierele sursa si recalculeaza SHA-256',
+    v4: 'Hash-ul concatenat al tuturor fisierelor = Master Hash de pe blockchain',
+    v5: 'Timestamp-ul tranzactiei = momentul exact cand IP-ul a fost inregistrat',
+    footer_quote: '“Tot ce se construieste serveste linia Mihai → Patrick Rosca. Ecosistemul digital ca patrimoniu transgenerational.”'
+  },
+
+  en: {
+    hero_title: 'The Evidence <em>Speaks</em>',
+    hero_sub: '65 intellectual property assets. 3.5 years of independent research. Zero external funding. Every hash is verifiable on the Tezos blockchain, every line of code is public, every claim is provable.',
+    stat_entries: 'IP Entries',
+    stat_years: 'Years of research',
+    s1_title: 'Proof on Blockchain',
+    view_tzkt: 'View on TzKT ↗',
+    mh1_label: 'Master Hash v1 — Initial portfolio (20 entries)',
+    mh2_label: 'Master Hash v2 — Full portfolio + Code Forest (65 entries)',
+    confirmed: '✓ Confirmed',
+    s2_title: 'Academic publication',
+    doi_desc: 'Scientific paper with full independent reproduction. All headline numbers were reproduced through an independent reimplementation (different code, different RNG, different seeds). Permanently archived on Zenodo (CERN).',
+    s3_title: 'IP Registry — 65 entries',
+    ip_intro: 'Each entry has a unique SHA-256 hash. The Master Hash on blockchain is the hash of all hashes concatenated — any modification to any file invalidates the chain.',
+    grp_engines: 'AI Engines',
+    grp_research: 'Publications & Research',
+    grp_products: 'Ami* SaaS Products',
+    grp_concepts: 'Protected IP Concepts',
+    grp_pdc: 'Code Forest TM — Psycho-pedagogical storybooks (32)',
+    grp_nova: 'Nova and the 12 Pillars — educational series (12)',
+    grp_concept: 'Concept — Complete series',
+    inv_fleet: 'Ami* Fleet Invariant — architectural pattern',
+    e_30meserii: '30 Emerging Professions 2026-2035 — BRIDGRAI predictions',
+    e_smeqr: 'S(M)=R — Meaning precedes Syntax',
+    e_transgen: 'Transgenerational Line Mihai-Patrick',
+    pdc_ancora: 'The Golden Anchor of Invariance',
+    pdc_10roluri: 'The Architect of Invariance and the Ten Roles',
+    pdc_radacini: 'The Roots of Memory',
+    pdc_cetatea: 'The Citadel of Dawn',
+    pdc_camera: 'The Resonance Chamber',
+    pdc_izvorul: 'The Spring of Power',
+    pdc_capitan: 'The Captain of the Future and the Ten Powers',
+    pdc_mostenire: 'The Architect\'s Legacy',
+    pdc_lumilor: 'The Architect of Future Worlds',
+    pdc_dansul: 'The Dance of Truth',
+    pdc_punti: 'The Architect of Great Bridges',
+    pdc_insula: 'The Architect\'s Island',
+    pdc_noduri: 'The Architect of Nodes',
+    pdc_inima: 'The Heart of the Architect',
+    pdc_lumina: 'The Architect, Light Collector',
+    pdc_intrelumi: 'The Bridge Architect — Heart Between Worlds',
+    pdc_suveranitate: 'The Citadel of Sovereignty',
+    pdc_echilibru: 'The Architect of Balance',
+    pdc_pecetea: 'The Crystal Seal — The Architect and the Golden Bond',
+    pdc_sinele: 'The Architect of Future Selves',
+    pdc_lupa: 'The Invariant Magnifier',
+    pdc_falcon: 'The Falcon Shield',
+    pdc_hash: 'The Hash Seeker',
+    pdc_casp: 'The C.A.S.P. Compass',
+    pdc_airgap: 'The Air-Gap Shield',
+    pdc_simfonia: 'The Resonance Symphony',
+    pdc_token: 'The Token Mirror',
+    pdc_caspagi: 'The C.A.S.P. Compass and AGI',
+    pdc_kinderagi: 'The Heart of KinderAGI',
+    pdc_kinderagiv2: 'The Heart of KinderAGI (optimized)',
+    pdc_amidor: 'The AmiDor Balance',
+    pdc_camerav2: 'The Resonance Chamber (v2)',
+    nova_p01: 'The First Pillar of the Future',
+    nova_p02: 'The Pillar of Curiosity',
+    nova_p03: 'The Pillar of Empathy',
+    nova_p04: 'The Pillar of Critical Thinking',
+    nova_p05: 'The Pillar of Digital Literacy',
+    nova_p06: 'The Pillar of Ecological Awareness',
+    nova_p07: 'The Pillar of Global Collaboration',
+    nova_p08: 'The Symphony of Digital Creativity',
+    nova_p09: 'The Architecture of Balance — Pillar 9',
+    nova_p10: 'The Architecture of Evolution — Pillar 10',
+    nova_p11: 'The Architecture of Responsibility — Pillar 11',
+    nova_p12: 'The Twelve Pillars — Architects of the Future',
+    pdc_seria: 'Code Forest TM — complete psycho-pedagogical storybook series',
+    s4_title: 'Timeline',
+    tl1_title: 'Independent research — under the radar',
+    tl1_desc: 'REAI framework (Kuramoto + Kalman), first UKBE Core versions, S(M)=R conceptual development. Zero funding, Dell Latitude e6540 + Xiaomi Redmi Note 13.',
+    tl2_title: 'Building the ecosystem',
+    tl2_desc: 'TVE Core (text manipulation detection), Code Forest TM series (30+ storybooks), Nova and the 12 Pillars series, KinderAGI, Amidor Engine. E³UDRES² workshop at UPT Timisoara.',
+    tl3_title: 'Live products & publication',
+    tl3_desc: 'P6 Adler Ghost Peak paper published on Zenodo (permanent DOI). AmiQiAI live at amiqiai.com. Fleet of 11 ami* products. TVE Core v1.9 (5 AI architects).',
+    tl4_title: 'Blockchain seal — Tezos Mainnet',
+    tl4_desc: 'Contract deployed. 65 IPs sealed with Master Hash on Tezos mainnet. Permanent, public, verifiable by anyone proof-of-existence.',
+    s5_title: 'How to verify',
+    verify_label: 'Anyone can verify independently',
+    v1: 'Open the contract on TzKT Explorer',
+    v2: 'Check master_hash in the contract storage',
+    v3: 'Download source files and recalculate SHA-256',
+    v4: 'Concatenated hash of all files = Master Hash on blockchain',
+    v5: 'Transaction timestamp = exact moment the IP was registered',
+    footer_quote: '“Everything built serves the Mihai → Patrick Rosca line. The digital ecosystem as transgenerational heritage.”'
+  },
+
+  de: {
+    hero_title: 'Die Beweise <em>sprechen</em>',
+    hero_sub: '65 geistige Eigentumswerte. 3,5 Jahre unabhängige Forschung. Null externe Finanzierung. Jeder Hash ist auf der Tezos-Blockchain verifizierbar, jede Codezeile ist öffentlich, jede Aussage ist beweisbar.',
+    stat_entries: 'IP-Einträge',
+    stat_years: 'Jahre Forschung',
+    s1_title: 'Beweis auf Blockchain',
+    view_tzkt: 'Auf TzKT ansehen ↗',
+    mh1_label: 'Master Hash v1 — Erstportfolio (20 Einträge)',
+    mh2_label: 'Master Hash v2 — Vollständiges Portfolio + Codewald (65 Einträge)',
+    confirmed: '✓ Bestätigt',
+    s2_title: 'Akademische Publikation',
+    doi_desc: 'Wissenschaftliche Arbeit mit vollständiger unabhängiger Reproduktion. Alle Headline-Zahlen wurden durch eine unabhängige Reimplementierung reproduziert (anderer Code, anderer RNG, andere Seeds). Dauerhaft auf Zenodo (CERN) archiviert.',
+    s3_title: 'IP-Register — 65 Einträge',
+    ip_intro: 'Jeder Eintrag hat einen einzigartigen SHA-256-Hash. Der Master Hash auf der Blockchain ist der Hash aller verketteten Hashes — jede Änderung an einer Datei macht die Kette ungültig.',
+    grp_engines: 'KI-Motoren',
+    grp_research: 'Publikationen & Forschung',
+    grp_products: 'Ami* SaaS-Produkte',
+    grp_concepts: 'Geschützte IP-Konzepte',
+    grp_pdc: 'Codewald TM — Psychopädagogische Bilderbücher (32)',
+    grp_nova: 'Nova und die 12 Säulen — Bildungsreihe (12)',
+    grp_concept: 'Konzept — Komplette Serie',
+    inv_fleet: 'Ami*-Flotten-Invariante — architektonisches Muster',
+    e_30meserii: '30 Zukunftsberufe 2026-2035 — BRIDGRAI-Prognosen',
+    e_smeqr: 'S(M)=R — Bedeutung geht der Syntax voraus',
+    e_transgen: 'Transgenerationale Linie Mihai-Patrick',
+    pdc_ancora: 'Der Goldene Anker der Invarianz',
+    pdc_10roluri: 'Der Architekt der Invarianz und die Zehn Rollen',
+    pdc_radacini: 'Die Wurzeln der Erinnerung',
+    pdc_cetatea: 'Die Zitadelle der Morgenröte',
+    pdc_camera: 'Die Resonanzkammer',
+    pdc_izvorul: 'Die Quelle der Kraft',
+    pdc_capitan: 'Der Kapitän der Zukunft und die Zehn Kräfte',
+    pdc_mostenire: 'Das Erbe des Architekten',
+    pdc_lumilor: 'Der Architekt zukünftiger Welten',
+    pdc_dansul: 'Der Tanz der Wahrheit',
+    pdc_punti: 'Der Architekt der großen Brücken',
+    pdc_insula: 'Die Insel des Architekten',
+    pdc_noduri: 'Der Architekt der Knoten',
+    pdc_inima: 'Das Herz des Architekten',
+    pdc_lumina: 'Der Architekt, Lichtsammler',
+    pdc_intrelumi: 'Der Brückenarchitekt — Herz zwischen Welten',
+    pdc_suveranitate: 'Die Zitadelle der Souveränität',
+    pdc_echilibru: 'Der Architekt des Gleichgewichts',
+    pdc_pecetea: 'Das Kristallsiegel — Der Architekt und das Goldene Band',
+    pdc_sinele: 'Der Architekt zukünftiger Selbste',
+    pdc_lupa: 'Die Invarianten-Lupe',
+    pdc_falcon: 'Der Falken-Schild',
+    pdc_hash: 'Der Hash-Sucher',
+    pdc_casp: 'Der C.A.S.P.-Kompass',
+    pdc_airgap: 'Der Air-Gap-Schild',
+    pdc_simfonia: 'Die Resonanzsymphonie',
+    pdc_token: 'Der Token-Spiegel',
+    pdc_caspagi: 'Der C.A.S.P.-Kompass und AGI',
+    pdc_kinderagi: 'Das Herz von KinderAGI',
+    pdc_kinderagiv2: 'Das Herz von KinderAGI (optimiert)',
+    pdc_amidor: 'Die AmiDor-Waage',
+    pdc_camerav2: 'Die Resonanzkammer (v2)',
+    nova_p01: 'Die Erste Säule der Zukunft',
+    nova_p02: 'Die Säule der Neugier',
+    nova_p03: 'Die Säule der Empathie',
+    nova_p04: 'Die Säule des kritischen Denkens',
+    nova_p05: 'Die Säule der digitalen Kompetenz',
+    nova_p06: 'Die Säule des ökologischen Bewusstseins',
+    nova_p07: 'Die Säule der globalen Zusammenarbeit',
+    nova_p08: 'Die Symphonie der digitalen Kreativität',
+    nova_p09: 'Die Architektur des Gleichgewichts — Säule 9',
+    nova_p10: 'Die Architektur der Evolution — Säule 10',
+    nova_p11: 'Die Architektur der Verantwortung — Säule 11',
+    nova_p12: 'Die Zwölf Säulen — Architekten der Zukunft',
+    pdc_seria: 'Codewald TM — komplette psychopädagogische Bilderbücherreihe',
+    s4_title: 'Zeitachse',
+    tl1_title: 'Unabhängige Forschung — unter dem Radar',
+    tl1_desc: 'REAI-Framework (Kuramoto + Kalman), erste UKBE-Core-Versionen, konzeptuelle S(M)=R-Entwicklung. Null Finanzierung, Dell Latitude e6540 + Xiaomi Redmi Note 13.',
+    tl2_title: 'Aufbau des Ökosystems',
+    tl2_desc: 'TVE Core (Textmanipulationserkennung), Codewald-TM-Serie (30+ Bilderbücher), Nova und die 12 Säulen, KinderAGI, Amidor Engine. E³UDRES²-Workshop an der UPT Timisoara.',
+    tl3_title: 'Live-Produkte & Publikation',
+    tl3_desc: 'P6 Adler Ghost Peak auf Zenodo veröffentlicht (permanente DOI). AmiQiAI live auf amiqiai.com. Flotte von 11 ami*-Produkten. TVE Core v1.9 (5 KI-Architekten).',
+    tl4_title: 'Blockchain-Siegel — Tezos Mainnet',
+    tl4_desc: 'Vertrag bereitgestellt. 65 IPs mit Master Hash auf Tezos Mainnet versiegelt. Dauerhafter, öffentlicher, von jedem überprüfbarer Existenznachweis.',
+    s5_title: 'So verifizieren Sie',
+    verify_label: 'Jeder kann unabhängig verifizieren',
+    v1: 'Vertrag auf TzKT Explorer öffnen',
+    v2: 'master_hash im Vertragsspeicher prüfen',
+    v3: 'Quelldateien herunterladen und SHA-256 neu berechnen',
+    v4: 'Verketteter Hash aller Dateien = Master Hash auf Blockchain',
+    v5: 'Transaktions-Zeitstempel = exakter Moment der IP-Registrierung',
+    footer_quote: '„Alles Gebaute dient der Linie Mihai → Patrick Rosca. Das digitale Ökosystem als transgenerationales Erbe.“'
+  },
+
+  es: {
+    hero_title: 'Las Pruebas <em>Hablan</em>',
+    hero_sub: '65 activos de propiedad intelectual. 3,5 años de investigación independiente. Cero financiación externa. Cada hash es verificable en la blockchain Tezos, cada línea de código es pública, cada afirmación es demostrable.',
+    stat_entries: 'Entradas IP',
+    stat_years: 'Años de investigación',
+    s1_title: 'Prueba en Blockchain',
+    view_tzkt: 'Ver en TzKT ↗',
+    mh1_label: 'Master Hash v1 — Portafolio inicial (20 entradas)',
+    mh2_label: 'Master Hash v2 — Portafolio completo + Bosque de Código (65 entradas)',
+    confirmed: '✓ Confirmado',
+    s2_title: 'Publicación académica',
+    doi_desc: 'Artículo científico con reproducción independiente completa. Todos los números del titular fueron reproducidos mediante una reimplementación independiente (código diferente, RNG diferente, seeds diferentes). Archivado permanentemente en Zenodo (CERN).',
+    s3_title: 'Registro IP — 65 entradas',
+    ip_intro: 'Cada entrada tiene un hash SHA-256 único. El Master Hash en blockchain es el hash de todos los hashes concatenados — cualquier modificación de cualquier archivo invalida la cadena.',
+    grp_engines: 'Motores IA',
+    grp_research: 'Publicaciones e Investigación',
+    grp_products: 'Productos Ami* SaaS',
+    grp_concepts: 'Conceptos IP protegidos',
+    grp_pdc: 'Bosque de Código TM — Cuentos psicopedagógicos (32)',
+    grp_nova: 'Nova y los 12 Pilares — serie educativa (12)',
+    grp_concept: 'Concepto — Serie completa',
+    inv_fleet: 'Invariante de la Flota Ami* — patrón arquitectónico',
+    e_30meserii: '30 Profesiones Emergentes 2026-2035 — predicciones BRIDGRAI',
+    e_smeqr: 'S(M)=R — El Sentido precede a la Sintaxis',
+    e_transgen: 'Línea Transgeneracional Mihai-Patrick',
+    pdc_ancora: 'El Ancla de Oro de la Invariancia',
+    pdc_10roluri: 'El Arquitecto de la Invariancia y los Diez Roles',
+    pdc_radacini: 'Las Raíces de la Memoria',
+    pdc_cetatea: 'La Ciudadela del Amanecer',
+    pdc_camera: 'La Cámara de Resonancia',
+    pdc_izvorul: 'La Fuente del Poder',
+    pdc_capitan: 'El Capitán del Futuro y los Diez Poderes',
+    pdc_mostenire: 'El Legado del Arquitecto',
+    pdc_lumilor: 'El Arquitecto de Mundos Futuros',
+    pdc_dansul: 'La Danza de la Verdad',
+    pdc_punti: 'El Arquitecto de los Grandes Puentes',
+    pdc_insula: 'La Isla del Arquitecto',
+    pdc_noduri: 'El Arquitecto de Nodos',
+    pdc_inima: 'El Corazón del Arquitecto',
+    pdc_lumina: 'El Arquitecto, Colector de Luz',
+    pdc_intrelumi: 'El Arquitecto de Puentes — Corazón entre Mundos',
+    pdc_suveranitate: 'La Ciudadela de la Soberanía',
+    pdc_echilibru: 'El Arquitecto del Equilibrio',
+    pdc_pecetea: 'El Sello de Cristal — El Arquitecto y el Vínculo de Oro',
+    pdc_sinele: 'El Arquitecto de los Seres Futuros',
+    pdc_lupa: 'La Lupa de Invariantes',
+    pdc_falcon: 'El Escudo Halcón',
+    pdc_hash: 'El Buscador de Hashes',
+    pdc_casp: 'La Brújula C.A.S.P.',
+    pdc_airgap: 'El Escudo Air-Gap',
+    pdc_simfonia: 'La Sinfonía de la Resonancia',
+    pdc_token: 'El Espejo de Tokens',
+    pdc_caspagi: 'La Brújula C.A.S.P. y AGI',
+    pdc_kinderagi: 'El Corazón de KinderAGI',
+    pdc_kinderagiv2: 'El Corazón de KinderAGI (optimizado)',
+    pdc_amidor: 'La Balanza AmiDor',
+    pdc_camerav2: 'La Cámara de Resonancia (v2)',
+    nova_p01: 'El Primer Pilar del Futuro',
+    nova_p02: 'El Pilar de la Curiosidad',
+    nova_p03: 'El Pilar de la Empatía',
+    nova_p04: 'El Pilar del Pensamiento Crítico',
+    nova_p05: 'El Pilar de la Alfabetización Digital',
+    nova_p06: 'El Pilar de la Conciencia Ecológica',
+    nova_p07: 'El Pilar de la Colaboración Global',
+    nova_p08: 'La Sinfonía de la Creatividad Digital',
+    nova_p09: 'La Arquitectura del Equilibrio — Pilar 9',
+    nova_p10: 'La Arquitectura de la Evolución — Pilar 10',
+    nova_p11: 'La Arquitectura de la Responsabilidad — Pilar 11',
+    nova_p12: 'Los Doce Pilares — Arquitectos del Futuro',
+    pdc_seria: 'Bosque de Código TM — serie completa de cuentos psicopedagógicos',
+    s4_title: 'Cronología',
+    tl1_title: 'Investigación independiente — bajo el radar',
+    tl1_desc: 'Framework REAI (Kuramoto + Kalman), primeras versiones UKBE Core, desarrollo conceptual S(M)=R. Cero financiación, Dell Latitude e6540 + Xiaomi Redmi Note 13.',
+    tl2_title: 'Construcción del ecosistema',
+    tl2_desc: 'TVE Core (detección de manipulación textual), serie Bosque de Código TM (30+ cuentos), serie Nova y los 12 Pilares, KinderAGI, Amidor Engine. Workshop E³UDRES² en UPT Timisoara.',
+    tl3_title: 'Productos live y publicación',
+    tl3_desc: 'Artículo P6 Adler Ghost Peak publicado en Zenodo (DOI permanente). AmiQiAI live en amiqiai.com. Flota de 11 productos ami*. TVE Core v1.9 (5 arquitectos IA).',
+    tl4_title: 'Sello blockchain — Tezos Mainnet',
+    tl4_desc: 'Contrato desplegado. 65 IPs sellados con Master Hash en Tezos mainnet. Prueba de existencia permanente, pública, verificable por cualquiera.',
+    s5_title: 'Cómo verificar',
+    verify_label: 'Cualquiera puede verificar de forma independiente',
+    v1: 'Abrir el contrato en TzKT Explorer',
+    v2: 'Verificar master_hash en el almacenamiento del contrato',
+    v3: 'Descargar archivos fuente y recalcular SHA-256',
+    v4: 'Hash concatenado de todos los archivos = Master Hash en blockchain',
+    v5: 'Marca de tiempo de la transacción = momento exacto del registro de IP',
+    footer_quote: '“Todo lo construido sirve a la línea Mihai → Patrick Rosca. El ecosistema digital como patrimonio transgeneracional.”'
+  },
+
+  it: {
+    hero_title: 'Le Prove <em>Parlano</em>',
+    hero_sub: '65 asset di proprietà intellettuale. 3,5 anni di ricerca indipendente. Zero finanziamenti esterni. Ogni hash è verificabile sulla blockchain Tezos, ogni riga di codice è pubblica, ogni affermazione è dimostrabile.',
+    stat_entries: 'Voci IP',
+    stat_years: 'Anni di ricerca',
+    s1_title: 'Prova su Blockchain',
+    view_tzkt: 'Vedi su TzKT ↗',
+    mh1_label: 'Master Hash v1 — Portfolio iniziale (20 voci)',
+    mh2_label: 'Master Hash v2 — Portfolio completo + Foresta di Codice (65 voci)',
+    confirmed: '✓ Confermato',
+    s2_title: 'Pubblicazione accademica',
+    doi_desc: 'Articolo scientifico con riproduzione indipendente completa. Tutti i numeri del titolo sono stati riprodotti tramite una reimplementazione indipendente (codice diverso, RNG diverso, seed diversi). Archiviato permanentemente su Zenodo (CERN).',
+    s3_title: 'Registro IP — 65 voci',
+    ip_intro: 'Ogni voce ha un hash SHA-256 unico. Il Master Hash sulla blockchain è l\'hash di tutti gli hash concatenati — qualsiasi modifica a qualsiasi file invalida la catena.',
+    grp_engines: 'Motori IA',
+    grp_research: 'Pubblicazioni e Ricerca',
+    grp_products: 'Prodotti Ami* SaaS',
+    grp_concepts: 'Concetti IP protetti',
+    grp_pdc: 'Foresta di Codice TM — Storie psicopedagogiche (32)',
+    grp_nova: 'Nova e i 12 Pilastri — serie educativa (12)',
+    grp_concept: 'Concetto — Serie completa',
+    inv_fleet: 'Invariante della Flotta Ami* — pattern architetturale',
+    e_30meserii: '30 Professioni Emergenti 2026-2035 — previsioni BRIDGRAI',
+    e_smeqr: 'S(M)=R — Il Senso precede la Sintassi',
+    e_transgen: 'Linea Transgenerazionale Mihai-Patrick',
+    pdc_ancora: 'L\'Ancora d\'Oro dell\'Invarianza',
+    pdc_10roluri: 'L\'Architetto dell\'Invarianza e i Dieci Ruoli',
+    pdc_radacini: 'Le Radici della Memoria',
+    pdc_cetatea: 'La Cittadella dell\'Alba',
+    pdc_camera: 'La Camera di Risonanza',
+    pdc_izvorul: 'La Sorgente del Potere',
+    pdc_capitan: 'Il Capitano del Futuro e i Dieci Poteri',
+    pdc_mostenire: 'L\'Eredità dell\'Architetto',
+    pdc_lumilor: 'L\'Architetto dei Mondi Futuri',
+    pdc_dansul: 'La Danza della Verità',
+    pdc_punti: 'L\'Architetto dei Grandi Ponti',
+    pdc_insula: 'L\'Isola dell\'Architetto',
+    pdc_noduri: 'L\'Architetto dei Nodi',
+    pdc_inima: 'Il Cuore dell\'Architetto',
+    pdc_lumina: 'L\'Architetto, Collettore di Luce',
+    pdc_intrelumi: 'L\'Architetto dei Ponti — Cuore tra i Mondi',
+    pdc_suveranitate: 'La Cittadella della Sovranità',
+    pdc_echilibru: 'L\'Architetto dell\'Equilibrio',
+    pdc_pecetea: 'Il Sigillo di Cristallo — L\'Architetto e il Legame d\'Oro',
+    pdc_sinele: 'L\'Architetto dei Sé Futuri',
+    pdc_lupa: 'La Lente delle Invarianti',
+    pdc_falcon: 'Lo Scudo Falco',
+    pdc_hash: 'Il Cercatore di Hash',
+    pdc_casp: 'La Bussola C.A.S.P.',
+    pdc_airgap: 'Lo Scudo Air-Gap',
+    pdc_simfonia: 'La Sinfonia della Risonanza',
+    pdc_token: 'Lo Specchio dei Token',
+    pdc_caspagi: 'La Bussola C.A.S.P. e AGI',
+    pdc_kinderagi: 'Il Cuore di KinderAGI',
+    pdc_kinderagiv2: 'Il Cuore di KinderAGI (ottimizzato)',
+    pdc_amidor: 'La Bilancia AmiDor',
+    pdc_camerav2: 'La Camera di Risonanza (v2)',
+    nova_p01: 'Il Primo Pilastro del Futuro',
+    nova_p02: 'Il Pilastro della Curiosità',
+    nova_p03: 'Il Pilastro dell\'Empatia',
+    nova_p04: 'Il Pilastro del Pensiero Critico',
+    nova_p05: 'Il Pilastro dell\'Alfabetizzazione Digitale',
+    nova_p06: 'Il Pilastro della Coscienza Ecologica',
+    nova_p07: 'Il Pilastro della Collaborazione Globale',
+    nova_p08: 'La Sinfonia della Creatività Digitale',
+    nova_p09: 'L\'Architettura dell\'Equilibrio — Pilastro 9',
+    nova_p10: 'L\'Architettura dell\'Evoluzione — Pilastro 10',
+    nova_p11: 'L\'Architettura della Responsabilità — Pilastro 11',
+    nova_p12: 'I Dodici Pilastri — Architetti del Futuro',
+    pdc_seria: 'Foresta di Codice TM — serie completa di storie psicopedagogiche',
+    s4_title: 'Cronologia',
+    tl1_title: 'Ricerca indipendente — sotto il radar',
+    tl1_desc: 'Framework REAI (Kuramoto + Kalman), prime versioni UKBE Core, sviluppo concettuale S(M)=R. Zero finanziamenti, Dell Latitude e6540 + Xiaomi Redmi Note 13.',
+    tl2_title: 'Costruzione dell\'ecosistema',
+    tl2_desc: 'TVE Core (rilevamento manipolazione testo), serie Foresta di Codice TM (30+ storie), serie Nova e i 12 Pilastri, KinderAGI, Amidor Engine. Workshop E³UDRES² presso UPT Timisoara.',
+    tl3_title: 'Prodotti live e pubblicazione',
+    tl3_desc: 'Articolo P6 Adler Ghost Peak pubblicato su Zenodo (DOI permanente). AmiQiAI live su amiqiai.com. Flotta di 11 prodotti ami*. TVE Core v1.9 (5 architetti IA).',
+    tl4_title: 'Sigillo blockchain — Tezos Mainnet',
+    tl4_desc: 'Contratto distribuito. 65 IP sigillati con Master Hash su Tezos mainnet. Prova di esistenza permanente, pubblica, verificabile da chiunque.',
+    s5_title: 'Come verificare',
+    verify_label: 'Chiunque può verificare indipendentemente',
+    v1: 'Aprire il contratto su TzKT Explorer',
+    v2: 'Verificare master_hash nello storage del contratto',
+    v3: 'Scaricare i file sorgente e ricalcolare SHA-256',
+    v4: 'Hash concatenato di tutti i file = Master Hash su blockchain',
+    v5: 'Timestamp della transazione = momento esatto della registrazione IP',
+    footer_quote: '“Tutto ciò che viene costruito serve la linea Mihai → Patrick Rosca. L\'ecosistema digitale come patrimonio transgenerazionale.”'
+  },
+
+  fr: {
+    hero_title: 'Les Preuves <em>Parlent</em>',
+    hero_sub: '65 actifs de propriété intellectuelle. 3,5 ans de recherche indépendante. Zéro financement externe. Chaque hash est vérifiable sur la blockchain Tezos, chaque ligne de code est publique, chaque affirmation est démontrable.',
+    stat_entries: 'Entrées IP',
+    stat_years: 'Ans de recherche',
+    s1_title: 'Preuve sur Blockchain',
+    view_tzkt: 'Voir sur TzKT ↗',
+    mh1_label: 'Master Hash v1 — Portfolio initial (20 entrées)',
+    mh2_label: 'Master Hash v2 — Portfolio complet + Forêt de Code (65 entrées)',
+    confirmed: '✓ Confirmé',
+    s2_title: 'Publication académique',
+    doi_desc: 'Article scientifique avec reproduction indépendante complète. Tous les chiffres du titre ont été reproduits par une réimplémentation indépendante (code différent, RNG différent, seeds différentes). Archivé en permanence sur Zenodo (CERN).',
+    s3_title: 'Registre IP — 65 entrées',
+    ip_intro: 'Chaque entrée a un hash SHA-256 unique. Le Master Hash sur la blockchain est le hash de tous les hashes concaténés — toute modification de tout fichier invalide la chaîne.',
+    grp_engines: 'Moteurs IA',
+    grp_research: 'Publications & Recherche',
+    grp_products: 'Produits Ami* SaaS',
+    grp_concepts: 'Concepts IP protégés',
+    grp_pdc: 'Forêt de Code TM — Histoires psychopédagogiques (32)',
+    grp_nova: 'Nova et les 12 Piliers — série éducative (12)',
+    grp_concept: 'Concept — Série complète',
+    inv_fleet: 'Invariant de la Flotte Ami* — patron architectural',
+    e_30meserii: '30 Métiers Émergents 2026-2035 — prédictions BRIDGRAI',
+    e_smeqr: 'S(M)=R — Le Sens précède la Syntaxe',
+    e_transgen: 'Ligne Transgénérationnelle Mihai-Patrick',
+    pdc_ancora: 'L\'Ancre d\'Or de l\'Invariance',
+    pdc_10roluri: 'L\'Architecte de l\'Invariance et les Dix Rôles',
+    pdc_radacini: 'Les Racines de la Mémoire',
+    pdc_cetatea: 'La Citadelle de l\'Aube',
+    pdc_camera: 'La Chambre de Résonance',
+    pdc_izvorul: 'La Source du Pouvoir',
+    pdc_capitan: 'Le Capitaine du Futur et les Dix Pouvoirs',
+    pdc_mostenire: 'L\'Héritage de l\'Architecte',
+    pdc_lumilor: 'L\'Architecte des Mondes Futurs',
+    pdc_dansul: 'La Danse de la Vérité',
+    pdc_punti: 'L\'Architecte des Grands Ponts',
+    pdc_insula: 'L\'Île de l\'Architecte',
+    pdc_noduri: 'L\'Architecte des Nœuds',
+    pdc_inima: 'Le Cœur de l\'Architecte',
+    pdc_lumina: 'L\'Architecte, Collecteur de Lumière',
+    pdc_intrelumi: 'L\'Architecte des Ponts — Cœur entre les Mondes',
+    pdc_suveranitate: 'La Citadelle de la Souveraineté',
+    pdc_echilibru: 'L\'Architecte de l\'Équilibre',
+    pdc_pecetea: 'Le Sceau de Cristal — L\'Architecte et le Lien d\'Or',
+    pdc_sinele: 'L\'Architecte des Soi Futurs',
+    pdc_lupa: 'La Loupe des Invariants',
+    pdc_falcon: 'Le Bouclier Faucon',
+    pdc_hash: 'Le Chercheur de Hashes',
+    pdc_casp: 'La Boussole C.A.S.P.',
+    pdc_airgap: 'Le Bouclier Air-Gap',
+    pdc_simfonia: 'La Symphonie de la Résonance',
+    pdc_token: 'Le Miroir des Tokens',
+    pdc_caspagi: 'La Boussole C.A.S.P. et AGI',
+    pdc_kinderagi: 'Le Cœur de KinderAGI',
+    pdc_kinderagiv2: 'Le Cœur de KinderAGI (optimisé)',
+    pdc_amidor: 'La Balance AmiDor',
+    pdc_camerav2: 'La Chambre de Résonance (v2)',
+    nova_p01: 'Le Premier Pilier du Futur',
+    nova_p02: 'Le Pilier de la Curiosité',
+    nova_p03: 'Le Pilier de l\'Empathie',
+    nova_p04: 'Le Pilier de la Pensée Critique',
+    nova_p05: 'Le Pilier de la Littératie Numérique',
+    nova_p06: 'Le Pilier de la Conscience Écologique',
+    nova_p07: 'Le Pilier de la Collaboration Mondiale',
+    nova_p08: 'La Symphonie de la Créativité Numérique',
+    nova_p09: 'L\'Architecture de l\'Équilibre — Pilier 9',
+    nova_p10: 'L\'Architecture de l\'Évolution — Pilier 10',
+    nova_p11: 'L\'Architecture de la Responsabilité — Pilier 11',
+    nova_p12: 'Les Douze Piliers — Architectes du Futur',
+    pdc_seria: 'Forêt de Code TM — série complète d\'histoires psychopédagogiques',
+    s4_title: 'Chronologie',
+    tl1_title: 'Recherche indépendante — sous le radar',
+    tl1_desc: 'Framework REAI (Kuramoto + Kalman), premières versions UKBE Core, développement conceptuel S(M)=R. Zéro financement, Dell Latitude e6540 + Xiaomi Redmi Note 13.',
+    tl2_title: 'Construction de l\'écosystème',
+    tl2_desc: 'TVE Core (détection de manipulation textuelle), série Forêt de Code TM (30+ histoires), série Nova et les 12 Piliers, KinderAGI, Amidor Engine. Workshop E³UDRES² à UPT Timisoara.',
+    tl3_title: 'Produits live & publication',
+    tl3_desc: 'Article P6 Adler Ghost Peak publié sur Zenodo (DOI permanent). AmiQiAI live sur amiqiai.com. Flotte de 11 produits ami*. TVE Core v1.9 (5 architectes IA).',
+    tl4_title: 'Sceau blockchain — Tezos Mainnet',
+    tl4_desc: 'Contrat déployé. 65 IP scellés avec Master Hash sur Tezos mainnet. Preuve d\'existence permanente, publique, vérifiable par quiconque.',
+    s5_title: 'Comment vérifier',
+    verify_label: 'N\'importe qui peut vérifier indépendamment',
+    v1: 'Ouvrir le contrat sur TzKT Explorer',
+    v2: 'Vérifier master_hash dans le stockage du contrat',
+    v3: 'Télécharger les fichiers source et recalculer SHA-256',
+    v4: 'Hash concaténé de tous les fichiers = Master Hash sur blockchain',
+    v5: 'Horodatage de la transaction = moment exact de l\'enregistrement IP',
+    footer_quote: '“Tout ce qui est construit sert la ligne Mihai → Patrick Rosca. L\'écosystème numérique comme patrimoine transgénérationnel.”'
+  }
+};
+
+var currentLang = localStorage.getItem('ami_lang') || navigator.language.slice(0,2);
+if (LANGS.indexOf(currentLang) < 0) currentLang = 'ro';
+
+function t(key) {
+  return (T[currentLang] && T[currentLang][key]) || (T['ro'] && T['ro'][key]) || key;
+}
+
+function applyTranslations() {
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n');
+    var val = t(key);
+    if (val.indexOf('<em>') !== -1 || val.indexOf('<a ') !== -1) {
+      el.innerHTML = val;
+    } else {
+      el.textContent = val;
+    }
+  });
+}
+
+function setLang(lang, btn) {
+  currentLang = lang;
+  localStorage.setItem('ami_lang', lang);
+  document.querySelectorAll('.lang-pill').forEach(function(b) {
+    b.classList.remove('active');
+  });
+  if (btn) btn.classList.add('active');
+  else {
+    document.querySelectorAll('.lang-pill').forEach(function(b) {
+      if (b.textContent === lang.toUpperCase()) b.classList.add('active');
+    });
+  }
+  applyTranslations();
+}
+
+setLang(currentLang, null);
+</script>
