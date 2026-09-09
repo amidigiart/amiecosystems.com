@@ -428,21 +428,21 @@
   <header class="hero">
     <p class="hero-eyebrow">BRIDGRAI Foundation &middot; Tezos Mainnet</p>
     <h1 data-i18n="hero_title">Dovezile <em>Vorbesc</em></h1>
-    <p class="hero-sub" data-i18n="hero_sub">101 active intelectuale. 3,5 ani de cercetare independenta. Zero finantare externa. Fiecare hash e verificabil pe blockchain-ul Tezos, fiecare linie de cod e publica, fiecare afirmatie e demonstrabila.</p>
+    <p class="hero-sub" data-i18n="hero_sub">128 active intelectuale. 3,5 ani de cercetare independenta. Zero finantare externa. Fiecare hash e verificabil pe blockchain-ul Tezos, fiecare linie de cod e publica, fiecare afirmatie e demonstrabila.</p>
   </header>
 
   <!-- STATS -->
   <div class="stats">
     <div class="stat">
-      <div class="stat-value">101</div>
-      <div class="stat-label" data-i18n="stat_entries">IP Entries</div>
+      <div class="stat-value">128</div>
+      <div class="stat-label" data-i18n="stat_entries">IP Assets</div>
     </div>
     <div class="stat">
-      <div class="stat-value">9</div>
-      <div class="stat-label" data-i18n="stat_agents">A2A Agents</div>
+      <div class="stat-value">13</div>
+      <div class="stat-label" data-i18n="stat_components">Components</div>
     </div>
     <div class="stat">
-      <div class="stat-value">1</div>
+      <div class="stat-value">2</div>
       <div class="stat-label">DOI Zenodo</div>
     </div>
     <div class="stat">
@@ -488,8 +488,8 @@
     </div>
 
     <div class="proof-card">
-      <div class="proof-label" data-i18n="mh3_label">Master Hash v3 &mdash; Arhive + Ground Zero + BRIDGRAI A2A Platform (101 entries)</div>
-      <div class="proof-hash" style="color: var(--text-muted); border-color: var(--border);" data-i18n="mh3_pending">In pregatire &mdash; se va inregistra dupa confirmarea tuturor entry-urilor #66-101</div>
+      <div class="proof-label" data-i18n="mh3_label">Master Hash v3 &mdash; Arhive + Ground Zero + BRIDGRAI A2A Platform (128 assets)</div>
+      <div class="proof-hash" style="color: var(--text-muted); border-color: var(--border);" data-i18n="mh3_pending">In pregatire &mdash; se va inregistra dupa confirmarea tuturor entry-urilor #66-128</div>
       <div class="proof-meta">
         <span data-i18n="mh3_status">Portofoliu actualizat: 100 active intelectuale</span>
       </div>
@@ -510,14 +510,28 @@
         <a href="https://doi.org/10.5281/zenodo.21269201" target="_blank">doi.org/10.5281/zenodo.21269201</a>
       </div>
     </div>
-    <p class="doi-sub" data-i18n="doi_desc">Lucrare stiintifica cu reproducere independenta completa. Toate numerele din headline au fost reproduse printr-o reimplementare independenta (cod diferit, RNG diferit, seeds diferite). Arhivata permanent pe Zenodo (CERN).</p>
+    <div class="doi-card" style="margin-top:10px">
+      <span class="doi-badge">DOI</span>
+      <div class="doi-text">
+        KCE: Knowledge Continuity Engineering &mdash; a new discipline for AI knowledge preservation<br>
+        <a href="https://doi.org/10.5281/zenodo.22667873" target="_blank">doi.org/10.5281/zenodo.22667873</a>
+      </div>
+    </div>
+    <div class="doi-card" style="margin-top:10px">
+      <span class="doi-badge" style="background:var(--accent-2,var(--gold))">CAMP</span>
+      <div class="doi-text">
+        CAMP: Cognitive Arbitration Mediation Protocol &mdash; vendor-neutral trust verification<br>
+        <a href="https://github.com/amidigiart/camp-protocol" target="_blank">github.com/amidigiart/camp-protocol</a>
+      </div>
+    </div>
+    <p class="doi-sub" data-i18n="doi_desc">Lucrari stiintifice cu reproducere independenta completa. Arhivate permanent pe Zenodo (CERN) si GitHub.</p>
   </section>
 
   <!-- SECTION 3: IP PORTFOLIO -->
   <section class="section">
     <div class="section-head">
       <span class="section-num">03</span>
-      <h2 class="section-title" data-i18n="s3_title">Registrul IP &mdash; 101 entries</h2>
+      <h2 class="section-title" data-i18n="s3_title">Registrul IP &mdash; 128 assets</h2>
     </div>
 
     <p class="ip-intro" data-i18n="ip_intro">Fiecare entry are un hash SHA-256 unic. Master Hash-ul de pe blockchain e hash-ul tuturor hash-urilor concatenate &mdash; orice modificare a oricarui fisier invalideaza lantul.</p>
@@ -757,21 +771,21 @@ var LANGS = ['ro','en','de','es','it','fr'];
 var T = {
   ro: {
     hero_title: 'Dovezile <em>Vorbesc</em>',
-    hero_sub: '101 active intelectuale. 3,5 ani de cercetare independenta. Zero finantare externa. Fiecare hash e verificabil pe blockchain-ul Tezos, fiecare linie de cod e publica, fiecare afirmatie e demonstrabila.',
-    stat_entries: 'IP Entries',
-    stat_agents: 'A2A Agents',
+    hero_sub: '128 active intelectuale. 3,5 ani de cercetare independenta. Zero finantare externa. Fiecare hash e verificabil pe blockchain-ul Tezos, fiecare linie de cod e publica, fiecare afirmatie e demonstrabila.',
+    stat_entries: 'IP Assets',
+    stat_agents: 'Components',
     stat_years: 'Ani cercetare',
     s1_title: 'Dovada pe Blockchain',
     view_tzkt: 'Vezi pe TzKT ↗',
     mh1_label: 'Master Hash v1 — Portofoliu initial (20 entries)',
     mh2_label: 'Master Hash v2 — Portofoliu complet + Padurea de Cod (65 entries)',
-    mh3_label: 'Master Hash v3 — Arhive + Ground Zero + BRIDGRAI A2A Platform (101 entries)',
-    mh3_pending: 'In pregatire — se va inregistra dupa confirmarea tuturor entry-urilor #66-101',
+    mh3_label: 'Master Hash v3 — Arhive + Ground Zero + BRIDGRAI A2A Platform (128 assets)',
+    mh3_pending: 'In pregatire — se va inregistra dupa confirmarea tuturor entry-urilor #66-128',
     mh3_status: 'Portofoliu actualizat: 100 active intelectuale',
     confirmed: '✓ Confirmat',
     s2_title: 'Publicatie academica',
     doi_desc: 'Lucrare stiintifica cu reproducere independenta completa. Toate numerele din headline au fost reproduse printr-o reimplementare independenta (cod diferit, RNG diferit, seeds diferite). Arhivata permanent pe Zenodo (CERN).',
-    s3_title: 'Registrul IP — 101 entries',
+    s3_title: 'Registrul IP — 128 assets',
     ip_intro: 'Fiecare entry are un hash SHA-256 unic. Master Hash-ul de pe blockchain e hash-ul tuturor hash-urilor concatenate — orice modificare a oricarui fisier invalideaza lantul.',
     grp_engines: 'Motoare AI & Engines',
     grp_research: 'Publicatii & Cercetare',
@@ -870,21 +884,21 @@ var T = {
 
   en: {
     hero_title: 'The Evidence <em>Speaks</em>',
-    hero_sub: '101 intellectual property assets. 3.5 years of independent research. Zero external funding. Every hash is verifiable on the Tezos blockchain, every line of code is public, every claim is provable.',
-    stat_entries: 'IP Entries',
-    stat_agents: 'A2A Agents',
+    hero_sub: '128 intellectual property assets. 3.5 years of independent research. Zero external funding. Every hash is verifiable on the Tezos blockchain, every line of code is public, every claim is provable.',
+    stat_entries: 'IP Assets',
+    stat_agents: 'Components',
     stat_years: 'Years of research',
     s1_title: 'Proof on Blockchain',
     view_tzkt: 'View on TzKT ↗',
     mh1_label: 'Master Hash v1 — Initial portfolio (20 entries)',
     mh2_label: 'Master Hash v2 — Full portfolio + Code Forest (65 entries)',
-    mh3_label: 'Master Hash v3 — Archives + Ground Zero + BRIDGRAI A2A Platform (101 entries)',
-    mh3_pending: 'In preparation — will be registered after confirming all entries #66-101',
+    mh3_label: 'Master Hash v3 — Archives + Ground Zero + BRIDGRAI A2A Platform (128 assets)',
+    mh3_pending: 'In preparation — will be registered after confirming all entries #66-128',
     mh3_status: 'Updated portfolio: 100 intellectual property assets',
     confirmed: '✓ Confirmed',
     s2_title: 'Academic publication',
     doi_desc: 'Scientific paper with full independent reproduction. All headline numbers were reproduced through an independent reimplementation (different code, different RNG, different seeds). Permanently archived on Zenodo (CERN).',
-    s3_title: 'IP Registry — 101 entries',
+    s3_title: 'IP Registry — 128 assets',
     ip_intro: 'Each entry has a unique SHA-256 hash. The Master Hash on blockchain is the hash of all hashes concatenated — any modification to any file invalidates the chain.',
     grp_engines: 'AI Engines',
     grp_research: 'Publications & Research',
@@ -983,7 +997,7 @@ var T = {
 
   de: {
     hero_title: 'Die Beweise <em>sprechen</em>',
-    hero_sub: '101 geistige Eigentumswerte. 3,5 Jahre unabhängige Forschung. Null externe Finanzierung. Jeder Hash ist auf der Tezos-Blockchain verifizierbar, jede Codezeile ist öffentlich, jede Aussage ist beweisbar.',
+    hero_sub: '128 geistige Eigentumswerte. 3,5 Jahre unabhängige Forschung. Null externe Finanzierung. Jeder Hash ist auf der Tezos-Blockchain verifizierbar, jede Codezeile ist öffentlich, jede Aussage ist beweisbar.',
     stat_entries: 'IP-Einträge',
     stat_agents: 'A2A-Agenten',
     stat_years: 'Jahre Forschung',
@@ -992,12 +1006,12 @@ var T = {
     mh1_label: 'Master Hash v1 — Erstportfolio (20 Einträge)',
     mh2_label: 'Master Hash v2 — Vollständiges Portfolio + Codewald (65 Einträge)',
     mh3_label: 'Master Hash v3 — Archive + Ground Zero + BRIDGRAI A2A Platform (100 Einträge)',
-    mh3_pending: 'In Vorbereitung — wird nach Bestätigung aller Einträge #66-101 registriert',
+    mh3_pending: 'In Vorbereitung — wird nach Bestätigung aller Einträge #66-128 registriert',
     mh3_status: 'Aktualisiertes Portfolio: 100 geistige Eigentumswerte',
     confirmed: '✓ Bestätigt',
     s2_title: 'Akademische Publikation',
     doi_desc: 'Wissenschaftliche Arbeit mit vollständiger unabhängiger Reproduktion. Alle Headline-Zahlen wurden durch eine unabhängige Reimplementierung reproduziert (anderer Code, anderer RNG, andere Seeds). Dauerhaft auf Zenodo (CERN) archiviert.',
-    s3_title: 'IP-Register — 101 Einträge',
+    s3_title: 'IP-Register — 128 Assets',
     ip_intro: 'Jeder Eintrag hat einen einzigartigen SHA-256-Hash. Der Master Hash auf der Blockchain ist der Hash aller verketteten Hashes — jede Änderung an einer Datei macht die Kette ungültig.',
     grp_engines: 'KI-Motoren',
     grp_research: 'Publikationen & Forschung',
@@ -1096,7 +1110,7 @@ var T = {
 
   es: {
     hero_title: 'Las Pruebas <em>Hablan</em>',
-    hero_sub: '101 activos de propiedad intelectual. 3,5 años de investigación independiente. Cero financiación externa. Cada hash es verificable en la blockchain Tezos, cada línea de código es pública, cada afirmación es demostrable.',
+    hero_sub: '128 activos de propiedad intelectual. 3,5 años de investigación independiente. Cero financiación externa. Cada hash es verificable en la blockchain Tezos, cada línea de código es pública, cada afirmación es demostrable.',
     stat_entries: 'Entradas IP',
     stat_agents: 'Agentes A2A',
     stat_years: 'Años de investigación',
@@ -1105,12 +1119,12 @@ var T = {
     mh1_label: 'Master Hash v1 — Portafolio inicial (20 entradas)',
     mh2_label: 'Master Hash v2 — Portafolio completo + Bosque de Código (65 entradas)',
     mh3_label: 'Master Hash v3 — Archivos + Ground Zero + BRIDGRAI A2A Platform (100 entradas)',
-    mh3_pending: 'En preparación — se registrará tras confirmar todas las entradas #66-101',
+    mh3_pending: 'En preparación — se registrará tras confirmar todas las entradas #66-128',
     mh3_status: 'Portafolio actualizado: 100 activos de propiedad intelectual',
     confirmed: '✓ Confirmado',
     s2_title: 'Publicación académica',
     doi_desc: 'Artículo científico con reproducción independiente completa. Todos los números del titular fueron reproducidos mediante una reimplementación independiente (código diferente, RNG diferente, seeds diferentes). Archivado permanentemente en Zenodo (CERN).',
-    s3_title: 'Registro IP — 101 entradas',
+    s3_title: 'Registro IP — 128 assets',
     ip_intro: 'Cada entrada tiene un hash SHA-256 único. El Master Hash en blockchain es el hash de todos los hashes concatenados — cualquier modificación de cualquier archivo invalida la cadena.',
     grp_engines: 'Motores IA',
     grp_research: 'Publicaciones e Investigación',
@@ -1209,7 +1223,7 @@ var T = {
 
   it: {
     hero_title: 'Le Prove <em>Parlano</em>',
-    hero_sub: '101 asset di proprietà intellettuale. 3,5 anni di ricerca indipendente. Zero finanziamenti esterni. Ogni hash è verificabile sulla blockchain Tezos, ogni riga di codice è pubblica, ogni affermazione è dimostrabile.',
+    hero_sub: '128 asset di proprietà intellettuale. 3,5 anni di ricerca indipendente. Zero finanziamenti esterni. Ogni hash è verificabile sulla blockchain Tezos, ogni riga di codice è pubblica, ogni affermazione è dimostrabile.',
     stat_entries: 'Voci IP',
     stat_agents: 'Agenti A2A',
     stat_years: 'Anni di ricerca',
@@ -1218,12 +1232,12 @@ var T = {
     mh1_label: 'Master Hash v1 — Portfolio iniziale (20 voci)',
     mh2_label: 'Master Hash v2 — Portfolio completo + Foresta di Codice (65 voci)',
     mh3_label: 'Master Hash v3 — Archivi + Ground Zero + BRIDGRAI A2A Platform (100 voci)',
-    mh3_pending: 'In preparazione — verrà registrato dopo la conferma di tutte le voci #66-101',
+    mh3_pending: 'In preparazione — verrà registrato dopo la conferma di tutte le voci #66-128',
     mh3_status: 'Portfolio aggiornato: 100 asset di proprietà intellettuale',
     confirmed: '✓ Confermato',
     s2_title: 'Pubblicazione accademica',
     doi_desc: 'Articolo scientifico con riproduzione indipendente completa. Tutti i numeri del titolo sono stati riprodotti tramite una reimplementazione indipendente (codice diverso, RNG diverso, seed diversi). Archiviato permanentemente su Zenodo (CERN).',
-    s3_title: 'Registro IP — 101 voci',
+    s3_title: 'Registro IP — 128 assets',
     ip_intro: 'Ogni voce ha un hash SHA-256 unico. Il Master Hash sulla blockchain è l\'hash di tutti gli hash concatenati — qualsiasi modifica a qualsiasi file invalida la catena.',
     grp_engines: 'Motori IA',
     grp_research: 'Pubblicazioni e Ricerca',
@@ -1322,7 +1336,7 @@ var T = {
 
   fr: {
     hero_title: 'Les Preuves <em>Parlent</em>',
-    hero_sub: '101 actifs de propriété intellectuelle. 3,5 ans de recherche indépendante. Zéro financement externe. Chaque hash est vérifiable sur la blockchain Tezos, chaque ligne de code est publique, chaque affirmation est démontrable.',
+    hero_sub: '128 actifs de propriété intellectuelle. 3,5 ans de recherche indépendante. Zéro financement externe. Chaque hash est vérifiable sur la blockchain Tezos, chaque ligne de code est publique, chaque affirmation est démontrable.',
     stat_entries: 'Entrées IP',
     stat_agents: 'Agents A2A',
     stat_years: 'Ans de recherche',
@@ -1331,12 +1345,12 @@ var T = {
     mh1_label: 'Master Hash v1 — Portfolio initial (20 entrées)',
     mh2_label: 'Master Hash v2 — Portfolio complet + Forêt de Code (65 entrées)',
     mh3_label: 'Master Hash v3 — Archives + Ground Zero + BRIDGRAI A2A Platform (100 entrées)',
-    mh3_pending: 'En préparation — sera enregistré après confirmation de toutes les entrées #66-101',
+    mh3_pending: 'En préparation — sera enregistré après confirmation de toutes les entrées #66-128',
     mh3_status: 'Portfolio mis à jour : 100 actifs de propriété intellectuelle',
     confirmed: '✓ Confirmé',
     s2_title: 'Publication académique',
     doi_desc: 'Article scientifique avec reproduction indépendante complète. Tous les chiffres du titre ont été reproduits par une réimplémentation indépendante (code différent, RNG différent, seeds différentes). Archivé en permanence sur Zenodo (CERN).',
-    s3_title: 'Registre IP — 101 entrées',
+    s3_title: 'Registre IP — 128 assets',
     ip_intro: 'Chaque entrée a un hash SHA-256 unique. Le Master Hash sur la blockchain est le hash de tous les hashes concaténés — toute modification de tout fichier invalide la chaîne.',
     grp_engines: 'Moteurs IA',
     grp_research: 'Publications & Recherche',
